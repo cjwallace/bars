@@ -1,38 +1,5 @@
-# create-svelte
+# bars
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+WIP horizontal bar chart creator.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![A nearly empty screen. The words 'POPULATION (MILLIONS)' are typed at the top, then a small plus icon is clicked. A horizontal bar appears, with inputs for a label and number. Three bars are created with the labels US, UK, and Brazil, and the numbers 329, 68, and 212 respectively, representing their populations in millions of people. The styling on the page is minimal.](static/bars-small.gif)
