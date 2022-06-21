@@ -28,15 +28,37 @@
 	}
 </script>
 
-<div class="max-w-xl m-auto my-12 font-mono text-xl font-bold">
-	<input type="text" value="TITLE" class="w-full" />
+<div class="title">
+	<input type="text" value="TITLE" />
 </div>
 
-<div class="max-w-xl m-auto my-12">
+<div class="bars">
 	{#each bars as bar}
-		<button on:click={() => removeBar(bar.id)} class="inline-block font-mono"> - </button>
+		<button on:click={() => removeBar(bar.id)} class="remove"> - </button>
 		<Bar bind:name={bar.name} bind:value={bar.value} width={bar.width} />
 		<br />
 	{/each}
-	<button on:click={addBar} class="block mt-1 font-mono">+</button>
+	<button on:click={addBar} class="add">+</button>
 </div>
+
+<style lang="postcss">
+	div.title {
+		@apply max-w-4xl m-auto my-12 font-mono text-xl font-bold;
+	}
+
+	div.title input {
+		@apply w-full;
+	}
+
+	div.bars {
+		@apply max-w-4xl m-auto my-12;
+	}
+
+	button.remove {
+		@apply inline-block font-mono;
+	}
+
+	button.add {
+		@apply block mt-1 font-mono;
+	}
+</style>
