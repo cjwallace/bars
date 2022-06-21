@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { flip } from 'svelte/animate';
 	import { maxBy } from 'lodash';
 
 	import Bar from '$lib/components/Bar.svelte';
@@ -11,7 +12,8 @@
 	};
 
 	let id = 0;
-	let bars: Bar[] = [];
+	const defaultBar = { name: 'label', value: 1, width: 1, id };
+	let bars: Bar[] = [defaultBar];
 
 	const addBar = () => {
 		id = id + 1;
@@ -22,10 +24,15 @@
 		bars = bars.filter((b) => b.id !== id);
 	};
 
+	const addButton = Symbol('addButton');
+
 	$: maxValue = maxBy(bars, 'value')?.value || 1;
 	$: {
 		bars.forEach((bar) => (bar.width = bar.value / maxValue));
 	}
+
+	let displayBars: Array<Bar | typeof addButton>;
+	$: displayBars = [...bars, addButton];
 </script>
 
 <div class="title">
@@ -33,12 +40,21 @@
 </div>
 
 <div class="bars">
-	{#each bars as bar}
-		<button on:click={() => removeBar(bar.id)} class="remove"> - </button>
-		<Bar bind:name={bar.name} bind:value={bar.value} width={bar.width} />
-		<br />
+	{#each displayBars as bar (bar)}
+		<div animate:flip={{ duration: 200 }}>
+			{#if bar == addButton}
+				<button on:click={addBar} class="add">+</button>
+			{:else}
+				<Bar
+					bind:name={bar.name}
+					bind:value={bar.value}
+					width={bar.width}
+					destroyer={() => removeBar(bar.id)}
+				/>
+				<br />
+			{/if}
+		</div>
 	{/each}
-	<button on:click={addBar} class="add">+</button>
 </div>
 
 <style lang="postcss">
@@ -47,18 +63,14 @@
 	}
 
 	div.title input {
-		@apply w-full;
+		@apply w-full outline-darkish p-2;
 	}
 
 	div.bars {
 		@apply max-w-4xl m-auto my-12;
 	}
 
-	button.remove {
-		@apply inline-block font-mono;
-	}
-
 	button.add {
-		@apply block mt-1 font-mono;
+		@apply block mt-1 ml-4 font-mono text-xl outline-darkish outline-offset-8;
 	}
 </style>

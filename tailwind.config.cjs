@@ -5,7 +5,8 @@ const config = {
 		extend: {
 			colors: {
 				dark: '#1f2937',
-				darkish: '#2d3c50'
+				darkish: '#2d3c50',
+				'vintage-red': '#cc6b49'
 			}
 		}
 	},
