@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { flip } from 'svelte/animate';
-	import { maxBy } from 'lodash';
+	import maxBy from 'lodash/maxBy';
 
 	import Bar from '$lib/components/Bar.svelte';
 
