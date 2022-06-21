@@ -1,6 +1,6 @@
 {
 	"name": "@standard-dev/bars",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -34,8 +34,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@types/lodash": "^4.14.182",
-		"lodash": "^4.17.21",
+		"@types/lodash-es": "^4.17.6",
+		"lodash-es": "^4.17.21",
 		"svelte2tsx": "^0.5.10"
 	}
 }
