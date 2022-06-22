@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="controls">
 		<div class="remove">
-			<button on:click={destroyer} class="remove"> - </button>
+			<button on:click={destroyer} class="remove"> &ndash; </button>
 		</div>
 		<input type="text" bind:value={name} class="name" />
 		<input type="number" min="0" bind:value class="value" />
@@ -33,7 +33,7 @@
 	}
 
 	button.remove {
-		@apply outline-darkish outline-offset-8 text-vintage-red text-xl;
+		@apply outline-darkish outline-offset-8 text-vintage-red text-xl font-extrabold;
 	}
 
 	div {
@@ -41,7 +41,7 @@
 	}
 
 	div.container {
-		@apply flex border rounded-md border-transparent p-4;
+		@apply flex border rounded-md border-transparent;
 		/* @apply hover:border hover:border-gray-400; */
 	}
 
@@ -58,6 +58,6 @@
 	}
 
 	div.bar {
-		@apply bg-dark pt-1 rounded-sm;
+		@apply bg-dark p-1 rounded-sm;
 	}
 </style>

@@ -12,12 +12,12 @@
 	};
 
 	let id = 0;
-	const defaultBar = { name: 'label', value: 1, width: 1, id };
-	let bars: Bar[] = [defaultBar];
+	const defaultBar = (id: number): Bar => ({ name: 'Edit me', value: 1, width: 1, id });
+	let bars: Bar[] = [defaultBar(id)];
 
 	const addBar = () => {
 		id = id + 1;
-		bars = bars.concat({ name: 'label', value: 1, width: 1, id });
+		bars = bars.concat(defaultBar(id));
 	};
 
 	const removeBar = (id: number) => {
@@ -36,7 +36,7 @@
 </script>
 
 <div class="title">
-	<input type="text" value="TITLE" />
+	<input type="text" value="THIS IS A FANTASTIC, AND ✨ EDITABLE ✨, TITLE FOR A BAR CHART" />
 </div>
 
 <div class="bars">
@@ -59,7 +59,11 @@
 
 <style lang="postcss">
 	div.title {
-		@apply max-w-4xl m-auto my-12 font-mono text-xl font-bold;
+		@apply max-w-4xl m-auto my-12 p-2;
+	}
+
+	input {
+		@apply text-center overflow-ellipsis text-xl font-bold font-mono;
 	}
 
 	div.title input {
@@ -71,6 +75,6 @@
 	}
 
 	button.add {
-		@apply block mt-1 ml-4 font-mono text-xl outline-darkish outline-offset-8;
+		@apply block mt-1 outline-darkish outline-offset-8 text-xl font-extrabold;
 	}
 </style>
